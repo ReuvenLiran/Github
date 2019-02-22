@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import RepoList from './RepoList';
 import './App.css';
 import withSearch from './Header/Header.container';
+import withLoading from './Header/Loading';
 
-const List = withSearch(props => <div>{props.searchTerm}</div>);
+const RepoListWithLoading = withLoading(RepoList)
 
+const RepoListWithSearch = withSearch(RepoListWithLoading);
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <List />
+        <RepoListWithSearch />
       </div>
     );
   }

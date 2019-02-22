@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-// import SearchInput from './SearchInput';
-// import SearchButton from './SearchButton';
 
+import { search } from '../services';
 import HeaderView from './Header';
 
 const withSearch = WrappedComponent => class extends PureComponent {
@@ -10,6 +9,8 @@ const withSearch = WrappedComponent => class extends PureComponent {
     super();
     this.state = {
       searchTerm: '',
+      repos: [],
+      isLoading: false,
     };
     this.onChange = this.onChange.bind(this);
     this.onSearch = this.onSearch.bind(this);
@@ -26,17 +27,27 @@ const withSearch = WrappedComponent => class extends PureComponent {
     });
   }
 
-  onSearch() {
-    const { onSearch } = this.props;
+  async onSearch() {
     const {
       searchTerm,
     } = this.state;
-    onSearch(searchTerm);
+    this.setState({
+      isLoading: true,
+    });
+    setTimeout(async () => {
+      const repos = await search(searchTerm);
+      this.setState({
+        repos,
+        isLoading: false,
+      });
+    }, 2000);
   }
 
   render() {
     const {
       searchTerm,
+      repos,
+      isLoading,
     } = this.state;
     return (
       <div>
@@ -46,7 +57,8 @@ const withSearch = WrappedComponent => class extends PureComponent {
           searchTerm={searchTerm}
         />
         <WrappedComponent
-          searchTerm={searchTerm}
+          isLoading={isLoading}
+          repos={repos}
         />
       </div>
     );
