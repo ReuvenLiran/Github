@@ -1,0 +1,9 @@
+{
+    "extends": "airbnb",
+    "rules": {
+        "react/forbid-prop-types": 1
+    },
+    "globals": {
+        "fetch": true
+    }
+}

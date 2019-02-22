@@ -1,0 +1,18 @@
+.search-box {
+  display: flex;
+  align-items: center;
+  position: relative;
+  i {
+    position: absolute;
+    color: black;
+    cursor: default;
+    transform: translateX(5px);
+  }
+  input {
+    padding-left: 40px;
+  }
+}
+
+.header {
+  display: flex;
+}
