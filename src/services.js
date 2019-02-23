@@ -11,6 +11,6 @@ export const search = async (searchTerm) => {
     id: item.id,
     repo: item.full_name,
     description: item.description,
+    url: item.html_url,
   }));
 };
-

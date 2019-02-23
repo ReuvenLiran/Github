@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
   REPO_SHAPE,
 } from 'types';
-import RepoItem from './RepoItem/RepoItem';
+import RepoItem from './RepoItem/RepoItem.container';
 
 const RepoList = memo((props) => {
   const {

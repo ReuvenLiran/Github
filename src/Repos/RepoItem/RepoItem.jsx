@@ -8,6 +8,7 @@ import {
 import {
   Card,
 } from 'components';
+
 import { withRouter } from 'react-router-dom';
 
 const RepoItem = memo((props) => {
@@ -17,13 +18,17 @@ const RepoItem = memo((props) => {
     description,
     history,
     id,
+    selectRepo,
   } = props;
   const path = `${REPO_PAGE}/${id}`;
-  console.log(path);
+  console.log(props);
   return (
     <Card
       className="repo"
-      onClick={() => history.push(path)}
+      onClick={() => {
+        history.push(path);
+        selectRepo(id);
+      }}
     >
       <h5>
         <span>

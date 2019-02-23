@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   REPOS_PAGE,
-  REPO_PAGE,
+  REPO_PAGE_PATH,
 } from 'consts';
 import { withSearch } from './Header';
 import { withLoading } from './Loading';
@@ -27,15 +27,15 @@ const REPO_ROUTE = {
       },
     } = props;
     return (
-<div>
-Repo:
-{' '}
-{id}
-</div>
-);
+      <div>
+        Repo:
+        {' '}
+        {id}
+      </div>
+    );
   },
   exact: true,
-  path: `${REPO_PAGE}/:id`,
+  path: REPO_PAGE_PATH,
 };
 
 export default [
