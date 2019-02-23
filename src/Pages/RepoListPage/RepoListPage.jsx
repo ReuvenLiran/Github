@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
 import { withSearch } from '../../Search';
 import { withLoading } from '../../Loading';
+import { withError } from '../../Error';
 import { RepoList } from './RepoList';
 
 const mapStateToProps = state => ({
   repoList: state.repos.repoList,
-  isLoading: state.repos.isLoading,
+  isLoading: state.repos.status === 'loading',
+  isError: state.repos.status === 'error',
 });
 
-const ReposPageConnected = connect(mapStateToProps)(RepoList);
-const ReposPageWithLoading = withLoading(ReposPageConnected);
-const ReposPageWithSearch = withSearch(ReposPageWithLoading);
+const ReposPageWithLoading = withLoading(RepoList);
+const ReposPageWithError = withError(ReposPageWithLoading);
+const ReposPageWithSearch = withSearch(ReposPageWithError);
+const ReposPageConnected = connect(mapStateToProps)(ReposPageWithSearch);
 
-export default ReposPageWithSearch;
+
+export default ReposPageConnected;

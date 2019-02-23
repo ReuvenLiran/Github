@@ -1,14 +1,20 @@
 import {
   storeRepos,
   setLoading,
+  setError,
 } from 'actions';
 
 import { search } from '../services';
 
 const searchRepos = (...args) => async (dispatch) => {
-  const repos = await search(...args)
-    .catch(e => console.log(e));
-  return dispatch(storeRepos(repos));
+  try {
+    const repos = await search(...args);
+    if (repos) {
+      dispatch(storeRepos(repos));
+    }
+  } catch (e) {
+    dispatch(setError());
+  }
 };
 
 export const mapStateToProps = state => ({

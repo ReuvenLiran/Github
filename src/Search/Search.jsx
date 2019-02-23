@@ -12,14 +12,16 @@ const Search = memo((props) => {
   } = props;
   return (
     <header className="header">
-      <SearchInput
-        onChange={onChangeSearchTerm}
-        searchTerm={searchTerm}
-      />
-      <Filter
-        onSelect={onChangeFilter}
-        sortBy={sortBy}
-      />
+      <div className="header-inputs">
+        <SearchInput
+          onChange={onChangeSearchTerm}
+          searchTerm={searchTerm}
+        />
+        <Filter
+          onSelect={onChangeFilter}
+          sortBy={sortBy}
+        />
+      </div>
       <SearchButton
         onClick={onSearch}
       />
