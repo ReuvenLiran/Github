@@ -1,9 +1,8 @@
-import React, { Component, memo } from 'react';
+import React, { memo } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import ROUTES from 'routes';
 import { withRouter } from 'react-router-dom';
-import RepoContext from './repoContext';
 
 import withSuspense from './withSuspense';
 

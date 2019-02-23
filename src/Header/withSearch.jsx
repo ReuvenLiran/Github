@@ -15,7 +15,10 @@ const withSearch = (WrappedComponent) => {
     static propTypes = {
       repoList: PropTypes.arrayOf(REPO_SHAPE).isRequired,
       isLoading: PropTypes.bool.isRequired,
+      setLoading: PropTypes.func.isRequired,
+      searchRepos: PropTypes.func.isRequired,
     }
+
     constructor(props) {
       super(props);
       this.state = {

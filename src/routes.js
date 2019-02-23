@@ -1,24 +1,20 @@
-import React from 'react';
 import {
   REPOS_PAGE,
   REPO_PAGE_PATH,
 } from 'consts';
-import { withSearch } from './Header';
-import { withLoading } from './Loading';
-import { RepoList } from './Repos';
-import Repo from './Repo/Repo.conatiner';
-
-const RepoListWithLoading = withLoading(RepoList);
-const RepoListWithSearch = withSearch(RepoListWithLoading);
+import {
+  RepoListPage,
+  RepoPage,
+} from './pages';
 
 const MAIN_ROUTE = {
-  component: RepoListWithSearch,
+  component: RepoListPage,
   exact: true,
   path: REPOS_PAGE,
 };
 
 const REPO_ROUTE = {
-  component: Repo,
+  component: RepoPage,
   exact: true,
   path: REPO_PAGE_PATH,
 };
