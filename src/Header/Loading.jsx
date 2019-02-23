@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-const withLoading = Component => (props) => {
-  console.log(props, Component);
+// const Loading = Component => memo((props) => {
+//   const { isLoading, ...otherProps } = props;
+//   if (!isLoading) return (<Component {...otherProps} />);
+//   return (<p>Be Hold, fetching data may take some time :)</p>);
+// });
+
+
+const withLoading = Component => memo((props) => {
   const { isLoading, ...otherProps } = props;
   if (!isLoading) return (<Component {...otherProps} />);
-  return (<p>Be Hold, fetching data may take some time :)</p>);
-};
+  return (<p>Loading...</p>);
+});
+
+// const withLoading = Cmponent => memo((props) => {
+//   const { isLoading, ...otherProps } = props;
+//   if (!isLoading) return (<Component {...otherProps} />);
+//   return (<p>Be Hold, fetching data may take some time :)</p>);
+// }
 
 export default withLoading;

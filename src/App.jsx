@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import RepoList from './RepoList';
 import './App.css';
 import withSearch from './Header/Header.container';
 import withLoading from './Header/Loading';
+import RepoList from './Repos/RepoList';
 
 const RepoListWithLoading = withLoading(RepoList)
 
