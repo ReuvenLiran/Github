@@ -23,7 +23,7 @@ const RepoItem = memo((props) => {
   const path = `${REPO_PAGE}/${id}`;
   return (
     <Card
-      className="repo"
+      className="repo-card"
       onClick={() => {
         history.push(path);
         selectRepo(id);

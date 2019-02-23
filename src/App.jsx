@@ -18,33 +18,12 @@ const renderRoute = routes => routes.map((r) => {
   );
 });
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      repoList: [],
-      selectedId: '',
-      selectRepo: this.selectRepo.bind(this),
-    };
-  }
-
-  selectRepo(selectedId) {
-    this.setState({
-      selectedId,
-    });
-  }
-
-  render() {
-    return (
-      <div className="App">
-        {/* <RepoContext.Provider value={this.state}> */}
-          <Switch>
-            {renderRoute(ROUTES)}
-          </Switch>
-        {/* </RepoContext.Provider> */}
-      </div>
-    );
-  }
-}
+const App = memo(() => (
+  <div className="App">
+    <Switch>
+      {renderRoute(ROUTES)}
+    </Switch>
+  </div>
+));
 
 export default withRouter(App);

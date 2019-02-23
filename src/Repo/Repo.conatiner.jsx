@@ -8,7 +8,14 @@ const mapStateToProps = (state) => {
       selectedId,
     },
   } = state;
-  const { url } = repoList.find(r => r.id === selectedId);
-  return ({ url });
+  const selectedRepo = repoList.find(r => r.id === selectedId) || {};
+  const {
+    url = '',
+    name = '',
+  } = selectedRepo;
+  return ({
+    url,
+    name,
+  });
 };
 export default connect(mapStateToProps)(Repo);

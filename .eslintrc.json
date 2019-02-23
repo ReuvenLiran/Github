@@ -5,5 +5,15 @@
     },
     "globals": {
         "fetch": true
-    }
+    },
+    "settings": {
+        "import/core-modules": [
+            "components", 
+            "services", 
+            "types", 
+            "actions",
+            "consts",
+            "utils"
+          ]
+      }
 }

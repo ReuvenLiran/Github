@@ -2,7 +2,6 @@ export const STORE_REPOS = 'STORE_REPOS';
 export const SET_LOADING = 'SET_LOADING';
 export const SELECT_REPO = 'SELECT_REPO';
 
-
 export const storeRepos = repoList => ({
   type: STORE_REPOS,
   repoList,
