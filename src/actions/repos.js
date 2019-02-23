@@ -8,7 +8,7 @@ export const storeRepos = repoList => ({
   repoList,
   loading: false,
 });
-export const setLoading = repoList => ({
+export const setLoading = () => ({
   type: SET_LOADING,
   loading: true,
   repoList: [],

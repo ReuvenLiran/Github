@@ -1,66 +1,92 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import {
+  storeRepos,
+  setLoading,
+} from 'actions';
 
 import { search } from '../services';
 import HeaderView from './Header';
 
-const withSearch = WrappedComponent => class extends PureComponent {
-  constructor() {
-    super();
-    this.state = {
-      searchTerm: '',
-      repos: [],
-      isLoading: false,
-    };
-    this.onChange = this.onChange.bind(this);
-    this.onSearch = this.onSearch.bind(this);
-  }
+const searchRepos = searchTerm => async (dispatch) => {
+  const repos = await search(searchTerm);
+  return dispatch(storeRepos(repos));
+};
 
-  onChange(e) {
-    const {
-      target: {
-        value: searchTerm,
-      },
-    } = e;
-    this.setState({
-      searchTerm,
-    });
-  }
+const mapStateToProps = state => ({
+  repoList: state.repos.repoList,
+  loading: state.repos.loading,
+});
 
-  async onSearch() {
-    const {
-      searchTerm,
-    } = this.state;
-    this.setState({
-      isLoading: true,
-    });
-    const repos = await search(searchTerm);
-    this.setState({
-      repos,
-      isLoading: false,
-    });
-  }
+const mapDispatchToProps = dispatch => ({
+  searchRepos: searchTerm => dispatch(searchRepos(searchTerm)),
+  setLoading: () => dispatch(setLoading()),
+});
 
-  render() {
-    const {
-      searchTerm,
-      repos,
-      isLoading,
-    } = this.state;
-    return (
-      <div className="page-with-header">
-        <HeaderView
-          onChange={this.onChange}
-          onSearch={this.onSearch}
-          searchTerm={searchTerm}
-        />
-        <WrappedComponent
-          isLoading={isLoading}
-          repos={repos}
-        />
-      </div>
-    );
+
+const withSearch = (WrappedComponent) => {
+  class Search extends PureComponent {
+    constructor(props) {
+      super(props);
+      this.state = {
+        searchTerm: '',
+        // repos: [],
+        // isLoading: false,
+      };
+      this.onChange = this.onChange.bind(this);
+      this.onSearch = this.onSearch.bind(this);
+    }
+
+    onChange(e) {
+      const {
+        target: {
+          value: searchTerm,
+        },
+      } = e;
+      this.setState({
+        searchTerm,
+      });
+    }
+
+    async onSearch() {
+      const {
+        searchTerm,
+      } = this.state;
+      const {
+        setLoading,
+        searchRepos,
+      } = this.props;
+      setLoading();
+      searchRepos(searchTerm);
+    }
+
+    render() {
+      const {
+        searchTerm,
+        // repos,
+        // isLoading,
+      } = this.state;
+      const {
+        repoList,
+        loading: isLoading,
+      } = this.props;
+      return (
+        <div className="page-with-header">
+          <HeaderView
+            onChange={this.onChange}
+            onSearch={this.onSearch}
+            searchTerm={searchTerm}
+          />
+          <WrappedComponent
+            isLoading={isLoading}
+            repos={repoList}
+          />
+        </div>
+      );
+    }
   }
+  return connect(mapStateToProps, mapDispatchToProps)(Search);
 };
 
 export default withSearch;
