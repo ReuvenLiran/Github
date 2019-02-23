@@ -11,11 +11,30 @@ class Repo extends PureComponent {
       visited: false,
     };
   }
-  render() {
-    return <div>
-      <Link
 
-      />
-    </div>
+  render() {
+    const {
+      url,
+      history: {
+        goBack,
+      },
+    } = this.props;
+    return (
+      <div>
+        <Link
+          target="_blank"
+          href={url}
+        >
+        Github
+        </Link>
+        <Button
+          onClick={goBack}
+        >
+          Back
+        </Button>
+      </div>
+    );
   }
 }
+
+export default Repo;

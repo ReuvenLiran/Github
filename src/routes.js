@@ -6,6 +6,7 @@ import {
 import { withSearch } from './Header';
 import { withLoading } from './Loading';
 import { RepoList } from './Repos';
+import Repo from './Repo/Repo.conatiner';
 
 const RepoListWithLoading = withLoading(RepoList);
 const RepoListWithSearch = withSearch(RepoListWithLoading);
@@ -17,23 +18,7 @@ const MAIN_ROUTE = {
 };
 
 const REPO_ROUTE = {
-  component: (props) => {
-    console.log(props);
-    const {
-      match: {
-        params: {
-          id,
-        },
-      },
-    } = props;
-    return (
-      <div>
-        Repo:
-        {' '}
-        {id}
-      </div>
-    );
-  },
+  component: Repo,
   exact: true,
   path: REPO_PAGE_PATH,
 };

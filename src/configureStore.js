@@ -11,6 +11,6 @@ const composeEnhancers = typeof window === 'object'
 export default function configureStore(initialState = {}) {
   return createStore(
     rootReducer,
-    applyMiddleware(thunk),
+    composeEnhancers(applyMiddleware(thunk)),
   );
 }

@@ -21,7 +21,6 @@ const RepoItem = memo((props) => {
     selectRepo,
   } = props;
   const path = `${REPO_PAGE}/${id}`;
-  console.log(props);
   return (
     <Card
       className="repo"

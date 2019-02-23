@@ -16,7 +16,7 @@ const searchRepos = searchTerm => async (dispatch) => {
 
 const mapStateToProps = state => ({
   repoList: state.repos.repoList,
-  loading: state.repos.loading,
+  isLoading: state.repos.isLoading,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -31,8 +31,6 @@ const withSearch = (WrappedComponent) => {
       super(props);
       this.state = {
         searchTerm: '',
-        // repos: [],
-        // isLoading: false,
       };
       this.onChange = this.onChange.bind(this);
       this.onSearch = this.onSearch.bind(this);
@@ -64,12 +62,10 @@ const withSearch = (WrappedComponent) => {
     render() {
       const {
         searchTerm,
-        // repos,
-        // isLoading,
       } = this.state;
       const {
         repoList,
-        loading: isLoading,
+        isLoading,
       } = this.props;
       return (
         <div className="page-with-header">

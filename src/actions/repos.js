@@ -6,11 +6,11 @@ export const SELECT_REPO = 'SELECT_REPO';
 export const storeRepos = repoList => ({
   type: STORE_REPOS,
   repoList,
-  loading: false,
+  isLoading: false,
 });
 export const setLoading = () => ({
   type: SET_LOADING,
-  loading: true,
+  isLoading: true,
   repoList: [],
 });
 
