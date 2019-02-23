@@ -1,0 +1,25 @@
+ 
+$prim-color: #e50914;
+
+.btn {
+  background-color: $prim-color;
+  color: rgb(222,222,222);
+  font-weight: 550;
+  padding: .375rem 1.5rem;
+  box-shadow: none;
+  transition: transform 0.3s ease-in-out, 
+              color .25s ease-in-out;
+  &:focus {
+    box-shadow: none;
+  }
+  &:hover {
+    color: white;
+    filter: brightness(1.1);
+  }
+}
+
+.btn:disabled, .btn.disabled {
+  opacity: 1;
+  filter: grayscale(35%);
+  background-color: rgba($prim-color, 0.75);
+}

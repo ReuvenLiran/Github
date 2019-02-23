@@ -1,36 +1,7 @@
 @import '~components/index';
-@import './Header/search';
+@import './Search/search';
 @import './Loading/loading';
-@import './Repos/repo-list';
-
-.repo-item {
-  padding: 10px;
-  h5 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .star {
-      display: flex;
-      align-items: center;      
-      i {
-        color: #e4d60f;
-        font-size: 1.8rem;
-      }
-    }
-  }
-}
-ul {
-  margin: 0;
-  list-style: none;
-  padding: 5px 10px;
-  li {
-    margin-bottom: 10px;
-    .repo-item {
-      background-color: #f5f5f5;
-      // background-color: #e4e8ef;
-    }
-  }
-}
+@import './Pages/pages';
 
 
 body {
@@ -51,39 +22,3 @@ body {
   position: relative;
   height: 100%;
 }
-
- 
-$prim-color: #e50914;
-
-.btn {
-  background-color: $prim-color;
-  color: rgb(222,222,222);
-  font-weight: 550;
-  padding: .375rem 1.5rem;
-  box-shadow: none;
-  // transition: transform 0.3s ease-in-out, 
-  //             color .25s ease-in-out;
-  &:focus {
-    box-shadow: none;
-  }
-  &:hover {
-    color: white;
-    filter: brightness(1.1);
-  }
-}
-
-.btn:disabled, .btn.disabled {
-  opacity: 1;
-  filter: grayscale(35%);
-  background-color: rgba($prim-color, 0.75);
-}
-
-// a {
-//   color: white;
-// }
-// a:visited {
-//   color: black;
-//   cursor: default;
-//   pointer-events: none;
-
-// }

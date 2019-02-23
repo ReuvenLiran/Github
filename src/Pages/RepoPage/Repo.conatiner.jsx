@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
   const selectedRepo = repoList.find(r => r.id === selectedId) || {};
   const {
     url = '',
-    name = '',
+    repo: name = '',
   } = selectedRepo;
   return ({
     url,

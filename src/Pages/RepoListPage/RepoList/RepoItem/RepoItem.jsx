@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { withRouter } from 'react-router-dom';
 import {
   REPO_OBJECT_SHAPE,
 } from 'types';
@@ -8,8 +9,6 @@ import {
 import {
   Card,
 } from 'components';
-
-import { withRouter } from 'react-router-dom';
 
 const RepoItem = memo((props) => {
   const {

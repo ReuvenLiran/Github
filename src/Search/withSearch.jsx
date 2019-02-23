@@ -2,10 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
-  REPO_SHAPE,
-} from 'types';
-import {
-  mapStateToProps,
   mapDispatchToProps,
 } from './utils';
 import Search from './Search';
@@ -13,8 +9,6 @@ import Search from './Search';
 const withSearch = (WrappedComponent) => {
   class WithSearch extends PureComponent {
     static propTypes = {
-      repoList: PropTypes.arrayOf(REPO_SHAPE).isRequired,
-      isLoading: PropTypes.bool.isRequired,
       setLoading: PropTypes.func.isRequired,
       searchRepos: PropTypes.func.isRequired,
     }
@@ -65,10 +59,6 @@ const withSearch = (WrappedComponent) => {
         searchTerm,
         sortBy,
       } = this.state;
-      const {
-        repoList,
-        isLoading,
-      } = this.props;
       return (
         <div className="page-with-header">
           <Search
@@ -79,14 +69,13 @@ const withSearch = (WrappedComponent) => {
             sortBy={sortBy}
           />
           <WrappedComponent
-            isLoading={isLoading}
-            repos={repoList}
+            {...this.props}
           />
         </div>
       );
     }
   }
-  return connect(mapStateToProps, mapDispatchToProps)(WithSearch);
+  return connect(null, mapDispatchToProps)(WithSearch);
 };
 
 export default withSearch;

@@ -2,12 +2,14 @@ import {
   STORE_REPOS,
   SET_LOADING,
   SELECT_REPO,
+  SET_ERROR,
 } from 'actions';
 
 const initalState = {
   repoList: [],
   selectedId: '',
   isLoading: false,
+  status: '',
 };
 
 export default (state = initalState, action) => {
@@ -16,10 +18,12 @@ export default (state = initalState, action) => {
       const {
         repoList,
         isLoading,
+        status,
       } = action;
       return ({
         ...state,
         repoList,
+        status,
         isLoading,
       });
     }
@@ -27,11 +31,13 @@ export default (state = initalState, action) => {
       const {
         repoList,
         isLoading,
+        status,
       } = action;
       return ({
         ...state,
         repoList,
         isLoading,
+        status,
       });
     }
     case SELECT_REPO: {
@@ -41,6 +47,13 @@ export default (state = initalState, action) => {
       return ({
         ...state,
         selectedId,
+      });
+    }
+    case SET_ERROR: {
+      const { status } = action;
+      return ({
+        ...state,
+        status,
       });
     }
     default:

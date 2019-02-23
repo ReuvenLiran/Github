@@ -7,11 +7,11 @@ import RepoItem from './RepoItem/RepoItem.container';
 
 const RepoList = memo((props) => {
   const {
-    repos,
+    repoList,
   } = props;
   return (
     <ul className="repo-list">
-      {repos.map(repo => (
+      {repoList.map(repo => (
         <li
           className="repo-item"
           key={repo.id}
@@ -24,10 +24,10 @@ const RepoList = memo((props) => {
 });
 
 RepoList.propTypes = {
-  repos: PropTypes.arrayOf(REPO_SHAPE),
+  repoList: PropTypes.arrayOf(REPO_SHAPE),
 };
 
 RepoList.defaultProps = {
-  repos: [],
+  repoList: [],
 };
 export default RepoList;

@@ -6,7 +6,8 @@ import {
 import { search } from '../services';
 
 const searchRepos = (...args) => async (dispatch) => {
-  const repos = await search(...args);
+  const repos = await search(...args)
+    .catch(e => console.log(e));
   return dispatch(storeRepos(repos));
 };
 
