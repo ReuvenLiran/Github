@@ -1,12 +1,14 @@
 import React, { memo } from 'react';
+import classNames from 'classnames';
 
 const Card = memo((props) => {
   const {
+    className,
     ...other
   } = props;
   return (
     <div
-      className="card"
+      className={classNames('card', className)}
       {...other}
     />
   );

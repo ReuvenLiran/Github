@@ -1,4 +1,36 @@
+@import '~components/index';
 @import './Header/search';
+
+
+.repo-item {
+  padding: 10px;
+  h5 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .star {
+      display: flex;
+      align-items: center;      
+      i {
+        color: #e4d60f;
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+ul {
+  margin: 0;
+  list-style: none;
+  padding: 5px 10px;
+  li {
+    margin-bottom: 10px;
+    .repo-item {
+      background-color: #f5f5f5;
+      // background-color: #e4e8ef;
+    }
+  }
+}
+
 
 body {
   margin: 0;
@@ -8,9 +40,4 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }

@@ -2,6 +2,9 @@ import React, { memo } from 'react';
 import {
   REPO_OBJECT_SHAPE,
 } from 'types';
+import {
+  Card,
+} from 'components';
 
 const RepoItem = memo((props) => {
   const {
@@ -10,17 +13,22 @@ const RepoItem = memo((props) => {
     description,
   } = props;
   return (
-    <div>
-      <span>
-        {repo}
-      </span>
-      <span>
+    <Card className="repo-item">
+      <h5>
+        <span>
+          {repo}
+        </span>
+        <span className="star">
+          {stars}
+          <i className="material-icons">
+          star
+          </i>
+        </span>
+      </h5>
+      <p>
         {description}
-      </span>
-      <span>
-        {stars}
-      </span>
-    </div>
+      </p>
+    </Card>
   );
 });
 
