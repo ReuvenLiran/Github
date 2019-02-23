@@ -34,13 +34,13 @@ const withSearch = WrappedComponent => class extends PureComponent {
     this.setState({
       isLoading: true,
     });
-    setTimeout(async () => {
+    // setTimeout(async () => {
       const repos = await search(searchTerm);
       this.setState({
         repos,
         isLoading: false,
       });
-    }, 200000);
+    // }, 200000);
   }
 
   render() {

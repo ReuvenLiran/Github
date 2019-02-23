@@ -1,0 +1,10 @@
+@import "./RepoItem/repo-item";
+
+.repo-list {
+  margin: 0;
+  list-style: none;
+  padding: 5px 10px;
+  .repo-item {
+    margin-bottom: 10px;
+  }
+}

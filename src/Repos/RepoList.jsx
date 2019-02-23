@@ -3,16 +3,19 @@ import PropTypes from 'prop-types';
 import {
   REPO_SHAPE,
 } from 'types';
-import RepoItem from './RepoItem';
+import RepoItem from './RepoItem/RepoItem';
 
 const RepoList = memo((props) => {
   const {
     repos,
   } = props;
   return (
-    <ul>
+    <ul className="repo-list">
       {repos.map(repo => (
-        <li key={repo.id}>
+        <li
+          className="repo-item"
+          key={repo.id}
+        >
           <RepoItem {...repo} />
         </li>
       ))}

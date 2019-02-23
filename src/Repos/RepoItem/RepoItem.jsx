@@ -13,7 +13,7 @@ const RepoItem = memo((props) => {
     description,
   } = props;
   return (
-    <Card className="repo-item">
+    <Card className="repo">
       <h5>
         <span>
           {repo}

@@ -1,6 +1,7 @@
 @import '~components/index';
 @import './Header/search';
 @import './Loading/loading';
+@import './Repos/repo-list';
 
 .repo-item {
   padding: 10px;
@@ -40,15 +41,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-@keyframes spin {
-  from {
-      transform:rotate(0deg);
-  }
-  to {
-      transform:rotate(360deg);
-  }
 }
 
 .App {
