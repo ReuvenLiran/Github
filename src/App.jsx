@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import withSearch from './Header/Header.container';
+import { withSearch } from './Header';
 import { withLoading } from './Loading';
 import { RepoList } from './Repos';
 

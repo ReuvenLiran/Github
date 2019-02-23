@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import SearchButton from './SearchButton';
-import SearchInput from './SearchInput';
+import { SearchInput, SearchButton } from './parts';
 
 const Header = memo((props) => {
   const {
