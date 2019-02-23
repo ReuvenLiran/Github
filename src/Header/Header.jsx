@@ -6,19 +6,19 @@ const Header = memo((props) => {
   const {
     searchTerm,
     onSearch,
-    onChange,
-    onSelect,
-    selected,
+    onChangeSearchTerm,
+    onChangeFilter,
+    sortBy,
   } = props;
   return (
     <header className="header">
       <SearchInput
-        onChange={onChange}
+        onChange={onChangeSearchTerm}
         searchTerm={searchTerm}
       />
-      <Filter 
-        onSelect={onSelect}
-        selected={selected}
+      <Filter
+        onSelect={onChangeFilter}
+        sortBy={sortBy}
       />
       <SearchButton
         onClick={onSearch}
@@ -30,9 +30,9 @@ const Header = memo((props) => {
 Header.propTypes = {
   searchTerm: PropTypes.string.isRequired,
   onSearch: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
-  onSelect: PropTypes.func.isRequired,
-  selected: PropTypes.string.isRequired,
+  onChangeSearchTerm: PropTypes.func.isRequired,
+  onChangeFilter: PropTypes.func.isRequired,
+  sortBy: PropTypes.string.isRequired,
 };
 
 export default Header;

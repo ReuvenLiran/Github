@@ -16,12 +16,12 @@ const OPTIONS = [{
 const Filter = memo((props) => {
   const {
     onSelect,
-    selected,
+    sortBy,
   } = props;
   return (
     <Select
       onSelect={onSelect}
-      selected={selected}
+      selected={sortBy}
       options={OPTIONS}
     />
   );
@@ -29,11 +29,7 @@ const Filter = memo((props) => {
 
 Filter.propTypes = {
   onSelect: PropTypes.func.isRequired,
-  selected: PropTypes.string,
-};
-
-Filter.defaultProps = {
-  selected: 'stars',
+  sortBy: PropTypes.string.isRequired,
 };
 
 export default Filter;

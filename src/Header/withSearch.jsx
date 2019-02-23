@@ -33,12 +33,12 @@ const withSearch = (WrappedComponent) => {
         searchTerm: '',
         sortBy: 'stars',
       };
-      this.onChange = this.onChange.bind(this);
+      this.onChangeSearchTerm = this.onChangeSearchTerm.bind(this);
       this.onSearch = this.onSearch.bind(this);
-      this.onSelect = this.onSelect.bind(this);
+      this.onChangeFilter = this.onChangeFilter.bind(this);
     }
 
-    onChange(e) {
+    onChangeSearchTerm(e) {
       const {
         target: {
           value: searchTerm,
@@ -49,7 +49,7 @@ const withSearch = (WrappedComponent) => {
       });
     }
 
-    onSelect({ value: sortBy }) {
+    onChangeFilter({ value: sortBy }) {
       this.setState({
         sortBy,
       });
@@ -80,11 +80,11 @@ const withSearch = (WrappedComponent) => {
       return (
         <div className="page-with-header">
           <HeaderView
-            onChange={this.onChange}
+            onChangeSearchTerm={this.onChangeSearchTerm}
             onSearch={this.onSearch}
             searchTerm={searchTerm}
-            onSelect={this.onSelect}
-            selected={sortBy}
+            onChangeFilter={this.onChangeFilter}
+            sortBy={sortBy}
           />
           <WrappedComponent
             isLoading={isLoading}
