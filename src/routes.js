@@ -5,7 +5,7 @@ import {
 import {
   RepoListPage,
   RepoPage,
-} from './pages';
+} from './Pages';
 
 const MAIN_ROUTE = {
   component: RepoListPage,

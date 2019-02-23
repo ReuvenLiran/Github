@@ -1,5 +1,5 @@
 
-import { withSearch } from '../../Header';
+import { withSearch } from '../../Search';
 import { withLoading } from '../../Loading';
 import { RepoList } from './RepoList';
 
