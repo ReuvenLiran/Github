@@ -9,7 +9,6 @@ const Select = memo((props) => {
     selected,
     onSelect,
   } = props;
-  console.log(selected)
   return (
     <DropDown
       onChange={onSelect}
@@ -20,10 +19,12 @@ const Select = memo((props) => {
 });
 
 Select.propTypes = {
-  options: PropTypes.arrayOf({
-    value: PropTypes.string,
-    label: PropTypes.string,
-  }).isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string,
+      label: PropTypes.string,
+    }),
+  ).isRequired,
   selected: PropTypes.string.isRequired,
   onSelect: PropTypes.func.isRequired,
 };

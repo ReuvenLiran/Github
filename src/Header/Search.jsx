@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { SearchInput, SearchButton, Filter } from './parts';
 
-const Header = memo((props) => {
+const Search = memo((props) => {
   const {
     searchTerm,
     onSearch,
@@ -27,7 +27,7 @@ const Header = memo((props) => {
   );
 });
 
-Header.propTypes = {
+Search.propTypes = {
   searchTerm: PropTypes.string.isRequired,
   onSearch: PropTypes.func.isRequired,
   onChangeSearchTerm: PropTypes.func.isRequired,
@@ -35,4 +35,4 @@ Header.propTypes = {
   sortBy: PropTypes.string.isRequired,
 };
 
-export default Header;
+export default Search;

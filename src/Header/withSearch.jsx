@@ -2,31 +2,20 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
-  storeRepos,
-  setLoading,
-} from 'actions';
-
-import { search } from '../services';
-import HeaderView from './Header';
-
-const searchRepos = (...args) => async (dispatch) => {
-  const repos = await search(...args);
-  return dispatch(storeRepos(repos));
-};
-
-const mapStateToProps = state => ({
-  repoList: state.repos.repoList,
-  isLoading: state.repos.isLoading,
-});
-
-const mapDispatchToProps = dispatch => ({
-  searchRepos: (...args) => dispatch(searchRepos(...args)),
-  setLoading: () => dispatch(setLoading()),
-});
-
+  REPO_SHAPE,
+} from 'types';
+import {
+  mapStateToProps,
+  mapDispatchToProps,
+} from './utils';
+import Search from './Search';
 
 const withSearch = (WrappedComponent) => {
-  class Search extends PureComponent {
+  class WithSearch extends PureComponent {
+    static propTypes = {
+      repoList: PropTypes.arrayOf(REPO_SHAPE).isRequired,
+      isLoading: PropTypes.bool.isRequired,
+    }
     constructor(props) {
       super(props);
       this.state = {
@@ -79,7 +68,7 @@ const withSearch = (WrappedComponent) => {
       } = this.props;
       return (
         <div className="page-with-header">
-          <HeaderView
+          <Search
             onChangeSearchTerm={this.onChangeSearchTerm}
             onSearch={this.onSearch}
             searchTerm={searchTerm}
@@ -94,7 +83,7 @@ const withSearch = (WrappedComponent) => {
       );
     }
   }
-  return connect(mapStateToProps, mapDispatchToProps)(Search);
+  return connect(mapStateToProps, mapDispatchToProps)(WithSearch);
 };
 
 export default withSearch;

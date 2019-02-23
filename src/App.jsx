@@ -12,6 +12,7 @@ const renderRoute = routes => routes.map((r) => {
   const { component, ...other } = r;
   return (
     <Route
+      key={other.path}
       {...other}
       component={withSuspense(component)}
     />

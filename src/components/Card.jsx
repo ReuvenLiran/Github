@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Card = memo((props) => {
@@ -14,4 +15,10 @@ const Card = memo((props) => {
   );
 });
 
+Card.propTypes = {
+  className: PropTypes.string,
+};
+Card.defaultProps = {
+  className: '',
+};
 export default Card;
