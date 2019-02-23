@@ -8,7 +8,7 @@
   }
 }
 
-@keyframes fading-in {
+@keyframes fade-in {
   from {
     transform: translateY(-30%);
     opacity: 0.3;
@@ -33,7 +33,7 @@
   top: 30%;
   left: 50%;
 
-  animation: fading-in .5s both ease-in-out;
+  animation: fade-in .5s both ease-in-out;
 
   i {
     margin-top: 5px;
