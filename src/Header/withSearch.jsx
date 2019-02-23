@@ -9,8 +9,8 @@ import {
 import { search } from '../services';
 import HeaderView from './Header';
 
-const searchRepos = searchTerm => async (dispatch) => {
-  const repos = await search(searchTerm);
+const searchRepos = (...args) => async (dispatch) => {
+  const repos = await search(...args);
   return dispatch(storeRepos(repos));
 };
 
@@ -20,7 +20,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  searchRepos: searchTerm => dispatch(searchRepos(searchTerm)),
+  searchRepos: (...args) => dispatch(searchRepos(...args)),
   setLoading: () => dispatch(setLoading()),
 });
 
@@ -31,9 +31,11 @@ const withSearch = (WrappedComponent) => {
       super(props);
       this.state = {
         searchTerm: '',
+        sortBy: 'stars',
       };
       this.onChange = this.onChange.bind(this);
       this.onSearch = this.onSearch.bind(this);
+      this.onSelect = this.onSelect.bind(this);
     }
 
     onChange(e) {
@@ -47,8 +49,15 @@ const withSearch = (WrappedComponent) => {
       });
     }
 
+    onSelect({ value: sortBy }) {
+      this.setState({
+        sortBy,
+      });
+    }
+
     async onSearch() {
       const {
+        sortBy,
         searchTerm,
       } = this.state;
       const {
@@ -56,12 +65,13 @@ const withSearch = (WrappedComponent) => {
         searchRepos,
       } = this.props;
       setLoading();
-      searchRepos(searchTerm);
+      searchRepos(searchTerm, sortBy);
     }
 
     render() {
       const {
         searchTerm,
+        sortBy,
       } = this.state;
       const {
         repoList,
@@ -73,6 +83,8 @@ const withSearch = (WrappedComponent) => {
             onChange={this.onChange}
             onSearch={this.onSearch}
             searchTerm={searchTerm}
+            onSelect={this.onSelect}
+            selected={sortBy}
           />
           <WrappedComponent
             isLoading={isLoading}

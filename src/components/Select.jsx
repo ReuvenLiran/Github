@@ -9,6 +9,7 @@ const Select = memo((props) => {
     selected,
     onSelect,
   } = props;
+  console.log(selected)
   return (
     <DropDown
       onChange={onSelect}
