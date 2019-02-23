@@ -40,7 +40,7 @@ const withSearch = WrappedComponent => class extends PureComponent {
         repos,
         isLoading: false,
       });
-    }, 2000);
+    }, 200000);
   }
 
   render() {
@@ -50,7 +50,7 @@ const withSearch = WrappedComponent => class extends PureComponent {
       isLoading,
     } = this.state;
     return (
-      <div>
+      <div className="page-with-header">
         <HeaderView
           onChange={this.onChange}
           onSearch={this.onSearch}
@@ -66,54 +66,3 @@ const withSearch = WrappedComponent => class extends PureComponent {
 };
 
 export default withSearch;
-
-// class Header extends PureComponent {
-//   static propTypes = {
-//     onSearch: PropTypes.func.isRequired,
-//   }
-
-//   constructor() {
-//     super();
-//     this.state = {
-//       searchTerm: '',
-//     };
-//     this.onChange = this.onChange.bind(this);
-//     this.onSearch = this.onSearch.bind(this);
-//   }
-
-//   onChange(e) {
-//     const {
-//       target: {
-//         value: searchTerm,
-//       },
-//     } = e;
-//     this.setState({
-//       searchTerm,
-//     });
-//   }
-
-//   onSearch() {
-//     const { onSearch } = this.props;
-//     const {
-//       searchTerm,
-//     } = this.state;
-//     onSearch(searchTerm);
-//   }
-
-//   render() {
-//     const {
-//       searchTerm,
-//     } = this.state;
-//     return (
-//       <div>
-//         <HeaderView
-//           onChange={this.onChange}
-//           onSearch={this.onSearch}
-//           searchTerm={searchTerm}
-//         />
-//         </div>
-//     );
-//   }
-// }
-
-// export default Header;

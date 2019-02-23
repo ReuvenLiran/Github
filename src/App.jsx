@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import withSearch from './Header/Header.container';
-import withLoading from './Header/Loading';
-import RepoList from './Repos/RepoList';
+import { withLoading } from './Loading';
+import { RepoList } from './Repos';
 
-const RepoListWithLoading = withLoading(RepoList)
-
+const RepoListWithLoading = withLoading(RepoList);
 const RepoListWithSearch = withSearch(RepoListWithLoading);
+
 class App extends Component {
   render() {
     return (
