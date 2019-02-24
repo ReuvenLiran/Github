@@ -17,11 +17,6 @@ const searchRepos = (...args) => async (dispatch) => {
   }
 };
 
-export const mapStateToProps = state => ({
-  repoList: state.repos.repoList,
-  isLoading: state.repos.isLoading,
-});
-
 export const mapDispatchToProps = dispatch => ({
   searchRepos: (...args) => dispatch(searchRepos(...args)),
   setLoading: () => dispatch(setLoading()),

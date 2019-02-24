@@ -3,9 +3,9 @@ export const SET_LOADING = 'SET_LOADING';
 export const SET_ERROR = 'SET_ERROR';
 export const SELECT_REPO = 'SELECT_REPO';
 
-const STATUS_SUCCESS = 'success';
-const STATUS_ERROR = 'error';
-const STATUS_LOADING = 'loading';
+export const STATUS_SUCCESS = 'success';
+export const STATUS_ERROR = 'error';
+export const STATUS_LOADING = 'loading';
 
 export const storeRepos = repoList => ({
   type: STORE_REPOS,
