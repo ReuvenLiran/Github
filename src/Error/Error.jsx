@@ -1,12 +1,13 @@
 import React, { memo } from 'react';
+import { Placeholder } from 'components';
 
 const Error = memo(() => (
-  <div className="error">
-        Error
-    <i className="material-icons">
-        error
-    </i>
-  </div>
+  <Placeholder
+    icon="error"
+    className="error"
+  >
+      Error
+  </Placeholder>
 ));
 
 export default Error;

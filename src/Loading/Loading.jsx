@@ -1,12 +1,13 @@
 import React, { memo } from 'react';
+import { Placeholder } from 'components';
 
 const Loading = memo(() => (
-  <div className="loading">
+  <Placeholder
+    icon="sync"
+    className="loading"
+  >
     Loading Data
-    <i className="material-icons">
-      sync
-    </i>
-  </div>
+  </Placeholder>
 ));
 
 export default Loading;

@@ -1,20 +1,16 @@
-
 .repo-page {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   .repo {
-    position: absolute;
-    top: 30%;
-    left: 50%;
     height: 60px;
     border-radius: 2px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    div {
-      a {
-        margin-right: 10px;
-      }
+    .link-go-to-github {
+      margin-right: 10px;
     }
   }
 }

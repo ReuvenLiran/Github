@@ -38,7 +38,7 @@ class Repo extends PureComponent {
           <h6>{name}</h6>
           <div>
             <Link
-              className={classNames({ disabled: isVisited })}
+              className={classNames('link-go-to-github', { disabled: isVisited })}
               target="_blank"
               href={url}
               onClick={this.onClick}

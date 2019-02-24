@@ -10,7 +10,7 @@ const withError = (Component) => {
   });
 
   WithError.propTypes = {
-    isError: PropTypes.string.isRequired,
+    isError: PropTypes.bool.isRequired,
   };
 
   return WithError;
