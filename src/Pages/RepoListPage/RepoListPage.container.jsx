@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import {
   STATUS_ERROR,
   STATUS_LOADING,
-} from 'actions';
+} from 'consts';
 import { withSearch } from '../../Search';
 import { withLoading } from '../../Loading';
 import { withError } from '../../Error';
