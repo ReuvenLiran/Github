@@ -7,6 +7,7 @@
     "parser": "babel-eslint",
     "globals": {
         "test": true,
+        "localStorage": true,
         "describe": true,
         "expect": true,
         "fetch": true
