@@ -1,5 +1,5 @@
 const searchApi = async (searchTerm, sortBy) => {
-  const API = `https://api1.github.com/search/repositories?q=${searchTerm}&sort=${sortBy}&order=desc`;
+  const API = `https://api.github.com/search/repositories?q=${searchTerm}&sort=${sortBy}&order=desc`;
   const result = await fetch(API);
   return result.json();
 };
