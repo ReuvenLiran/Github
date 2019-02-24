@@ -28,8 +28,8 @@ const RepoItem = memo((props) => {
         selectRepo(id);
       }}
     >
-      <h5>
-        <span>
+      <h5 className="repo-header">
+        <span className="name">
           {repo}
         </span>
         <span className="star">
