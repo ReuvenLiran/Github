@@ -36,7 +36,7 @@ const testSetLoading = () => {
   const setLoadingResult = reducer(initalState, {
     type: SET_LOADING,
     status,
-  }); 
+  });
   expect(setLoadingResult).toHaveProperty(['status'], status);
   expect(setLoadingResult).toHaveProperty(['repoList'], []);
 };
@@ -55,7 +55,7 @@ const testSelectRepo = () => {
   })).toHaveProperty(['selectedId'], selectedId);
 };
 
-describe('Test Checkout Reducer', () => {
+describe('Test Repos Reducer', () => {
   test('Test InitalState', testInitalState);
   test('Test StoreRepos', testStoreRepos);
   test('Test SetLoading', testSetLoading);

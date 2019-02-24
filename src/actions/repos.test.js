@@ -40,7 +40,7 @@ const testSelectRepo = () => {
   });
 };
 
-describe('Test Checkout Actions', () => {
+describe('Test Repos Actions', () => {
   test('testStoreRepos', testStoreRepos);
   test('testSetError', testSetError);
   test('testSetLoading', testSetLoading);
