@@ -11,7 +11,6 @@ export const storeRepos = repoList => ({
   type: STORE_REPOS,
   repoList,
   status: STATUS_SUCCESS,
-  isLoading: false,
 });
 
 export const setError = () => ({
@@ -21,9 +20,7 @@ export const setError = () => ({
 
 export const setLoading = () => ({
   type: SET_LOADING,
-  isLoading: true,
   status: STATUS_LOADING,
-  repoList: [],
 });
 
 export const selectRepo = selectedId => ({

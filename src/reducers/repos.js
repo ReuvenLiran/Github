@@ -8,7 +8,6 @@ import {
 const initalState = {
   repoList: [],
   selectedId: '',
-  isLoading: false,
   status: '',
 };
 
@@ -17,26 +16,21 @@ export default (state = initalState, action) => {
     case STORE_REPOS: {
       const {
         repoList,
-        isLoading,
         status,
       } = action;
       return ({
         ...state,
         repoList,
         status,
-        isLoading,
       });
     }
     case SET_LOADING: {
       const {
-        repoList,
-        isLoading,
         status,
       } = action;
       return ({
         ...state,
-        repoList,
-        isLoading,
+        repoList: [],
         status,
       });
     }
